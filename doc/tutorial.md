@@ -95,7 +95,7 @@ SUBCOMMANDS:
 We'll go through the main features one by one. Let's start by depositing
 some coins into darkfi.
 
-First, we need testnet coins on either Bitcoin or Solana. For
+First, we need testnet coins on either Bitcoin or Solana (devnet). For
 Bitcoin these can be acquired from a faucet like [this
 one](https://testnet-faucet.mempool.co/). You will need to switch your
 Bitcoin wallet to testnet mode.
@@ -110,8 +110,8 @@ For Solana, you can either install the Solana command-line suite or use
 [sollet](sollet.io).
 
 Follow [this tutorial](https://docs.solana.com/cli) for the Solana
-command-line. For sollet.io, switch the network to testnet and click
-'Request Airdrop' to airdrop yourself some testnet coins.
+command-line. For sollet.io, switch the network to devnet and click
+'Request Airdrop' to airdrop yourself some devnet coins.
 
 Now that we have testnet coins we can deposit into darkfi.
 
