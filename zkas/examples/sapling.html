@@ -1,0 +1,604 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The DarkFi Book</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">DarkFi</a></li><li class="chapter-item expanded "><a href="../../IDEOLOGY.html"><strong aria-hidden="true">1.</strong> Ideology</a></li><li class="chapter-item expanded "><a href="../../development.html"><strong aria-hidden="true">2.</strong> Development</a></li><li class="chapter-item expanded "><a href="../../tutorial.html"><strong aria-hidden="true">3.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="../../architecture/architecture.html"><strong aria-hidden="true">4.</strong> Architecture</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../architecture/blockchain.html"><strong aria-hidden="true">4.1.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="../../architecture/nodes.html"><strong aria-hidden="true">4.2.</strong> Node design</a></li></ol></li><li class="chapter-item expanded "><a href="../../clients/clients.html"><strong aria-hidden="true">5.</strong> Client</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../clients/darkfid_jsonrpc.html"><strong aria-hidden="true">5.1.</strong> darkfid JSON-RPC API</a></li><li class="chapter-item expanded "><a href="../../clients/cashierd_jsonrpc.html"><strong aria-hidden="true">5.2.</strong> cashierd JSON-RPC API</a></li></ol></li><li class="chapter-item expanded "><a href="../../zkas/zkas.html"><strong aria-hidden="true">6.</strong> zkas</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../zkas/bincode.html"><strong aria-hidden="true">6.1.</strong> Bincode</a></li><li class="chapter-item expanded "><a href="../../zkas/examples.html"><strong aria-hidden="true">6.2.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../zkas/examples/sapling.html" class="active"><strong aria-hidden="true">6.2.1.</strong> Sapling scheme</a></li><li class="chapter-item expanded "><a href="../../zkas/examples/voting.html"><strong aria-hidden="true">6.2.2.</strong> Anonymous voting</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../misc/misc.html"><strong aria-hidden="true">7.</strong> Miscellaneous tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../misc/vanityaddr.html"><strong aria-hidden="true">7.1.</strong> vanityaddr</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <!-- Make the book title only appear if it is *not* the chapter title as well -->
+                    <h1 id="book-title" class="menu-title">The DarkFi Book</h1>
+                    <script type="text/javascript">
+                        var bookTitleElement = document.getElementById('book-title')
+                        var bookTitle = 'The DarkFi Book';
+                        var chapterTitle = 'Sapling scheme';
+                        if (bookTitle === chapterTitle) {
+                            bookTitleElement.innerText = null;
+                            document.title = bookTitle;
+                        }
+                    </script>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="sapling-payment-scheme"><a class="header" href="#sapling-payment-scheme">Sapling payment scheme</a></h1>
+<p>Sapling is a type of transaction which hides both the sender and
+receiver data, as well as the amount transacted. This means it allows
+a fully private transaction between two addresses.</p>
+<p>Generally, the Sapling payment scheme consists of two ZK proofs -
+<strong>mint</strong> and <strong>burn</strong>. We use the mint proof to create a new <em>coin</em>
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>, and we use the burn proof to spend a previously minted <em>coin</em>.</p>
+<h2 id="mint-proof"><a class="header" href="#mint-proof">Mint proof</a></h2>
+<pre><code>constant &quot;Mint&quot; {
+	EcFixedPointShort VALUE_COMMIT_VALUE,
+	EcFixedPoint VALUE_COMMIT_RANDOM,
+}
+
+contract &quot;Mint&quot; {
+	Base pub_x,
+	Base pub_y,
+	Base value,
+	Base token,
+	Base serial,
+	Base coin_blind,
+	Scalar value_blind,
+	Scalar token_blind,
+}
+
+circuit &quot;Mint&quot; {
+	# Poseidon hash of the coin
+	C = poseidon_hash(pub_x, pub_y, value, token, serial, coin_blind);
+	constrain_instance(C);
+
+	# Pedersen commitment for coin's value
+	vcv = ec_mul_short(value, VALUE_COMMIT_VALUE);
+	vcr = ec_mul(value_blind, VALUE_COMMIT_RANDOM);
+	value_commit = ec_add(vcv, vcr);
+	# Since the value commit is a curve point, we fetch its coordinates
+	# and constrain them:
+	value_commit_x = ec_get_x(value_commit);
+	value_commit_y = ec_get_y(value_commit);
+	constrain_instance(value_commit_x);
+	constrain_instance(value_commit_y);
+
+	# Pedersen commitment for coin's token ID
+	tcv = ec_mul_short(token, VALUE_COMMIT_VALUE);
+	tcr = ec_mul(token_blind, VALUE_COMMIT_RANDOM);
+	token_commit = ec_add(tcv, tcr);
+	# Since token_commit is also a curve point, we'll do the same
+	# coordinate dance:
+	token_commit_x = ec_get_x(token_commit);
+	token_commit_y = ec_get_y(token_commit);
+	constrain_instance(token_commit_x);
+	constrain_instance(token_commit_y);
+
+	# At this point we've enforced all of our public inputs.
+}
+</code></pre>
+<p>As you can see, the <code>Mint</code> proof basically consists of three
+operations.  First one is hashing the <em>coin</em> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>, and after that,
+we create <em>Pedersen commitments</em><sup class="footnote-reference"><a href="#1">1</a></sup> for both the coin's <strong>value</strong>
+and the coin's <strong>token ID</strong>. On top of the zkas code, we've declared
+two constant values that we are going to use for multiplication in
+the commitments.</p>
+<p>The <code>constrain_instance</code> call can take any of our assigned variables
+and enforce a <em>public input</em>. Public inputs are an array (or vector)
+of revealed values used by verifiers to verify a zero knowledge
+proof. In the above case of the Mint proof, since we have five calls to
+<code>constrain_instance</code>, we would also have an array of five elements that
+represent these public inputs. The array's order <strong>must match</strong> the
+order of the <code>constrain_instance</code> calls since they will be constrained
+by their index in the array (which is incremented for every call).</p>
+<p>In other words, the vector of public inputs could look like this:</p>
+<pre><code>let public_inputs = vec![
+    coin,
+    *value_coords.x(),
+    *value_coords.y(),
+    *token_coords.x(),
+    *token_coords.y(),
+];
+</code></pre>
+<p>And then the Verifier uses these public inputs to verify a given zero
+knowledge proof.</p>
+<h3 id="coin"><a class="header" href="#coin">Coin</a></h3>
+<p>During the <strong>Mint</strong> phase we create a new coin <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>, which is bound
+to the public key <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>. The coin <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> is publicly revealed on the
+blockchain and added to the Merkle tree.</p>
+<p>Let <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> be the coin's value, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> be the token ID, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">ρ</span></span></span></span> be the unique
+serial number for the coin, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> be a random blinding value. We
+create a commitment (hash) of these elements and produce the coin <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>
+in zero-knowledge:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">ρ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>An interesting thing to keep in mind is that this commitment is
+extensible, so one could fit an arbitrary amount of different
+attributes inside it.</p>
+<h3 id="value-and-token-commitments"><a class="header" href="#value-and-token-commitments">Value and token commitments</a></h3>
+<p>To have some value <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span></span></span></span> for our coin, we ensure it's greater than
+zero, and then we can create a Pedersen commitment <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+is the blinding factor for the commitment, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> are
+two predefined generators:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span>
+<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>The token ID can be thought of as an attribute we append to our coin
+so we can have a differentiation of assets we are working with. In
+practice, this allows us to work with different tokens, using the
+same zero-knowledge proof circuit. For this token ID, we can also
+build a Pedersen commitment <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> where <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> is the token ID, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+is the blinding factor, and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> are predefined generators:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal">t</span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<h2 id="pseudo-code"><a class="header" href="#pseudo-code">Pseudo-code</a></h2>
+<p>Knowing this we can extend our pseudo-code and build the
+before-mentioned public inputs for the circuit:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let bincode = include_bytes!(&quot;../proof/mint.zk.bin&quot;);
+    let zkbin = ZkBinary::decode(bincode)?;
+
+    // ======
+    // Prover
+    // ======
+
+    // Witness values
+    let value = 42;
+    let token_id = pallas::Base::from(22);
+    let value_blind = pallas::Scalar::random(&amp;mut OsRng);
+    let token_blind = pallas::Scalar::random(&amp;mut OsRng);
+    let serial = pallas::Base::random(&amp;mut OsRng);
+    let coin_blind = pallas::Base::random(&amp;mut OsRng);
+    let public_key = PublicKey::random(&amp;mut OsRng);
+    let coords = public_key.0.to_affine().coordinates().unwrap();
+
+    let prover_witnesses = vec![
+        Witness::Base(Some(*coords.x())),
+        Witness::Base(Some(*coords.y())),
+        Witness::Base(Some(pallas::Base::from(value))),
+        Witness::Base(Some(token_id)),
+        Witness::Base(Some(serial)),
+        Witness::Base(Some(coin_blind)),
+        Witness::Scalar(Some(value_blind)),
+        Witness::Scalar(Some(token_blind)),
+    ];
+
+    // Create the public inputs
+    let msgs = [*coords.x(), *coords.y(), pallas::Base::from(value), token_id, serial, coin_blind];
+    let coin = poseidon::Hash::&lt;_, P128Pow5T3, ConstantLength&lt;6&gt;, 3, 2&gt;::init().hash(msgs);
+
+    let value_commit = pedersen_commitment_u64(value, value_blind);
+    let value_coords = value_commit.to_affine().coordinates().unwrap();
+
+    let token_commit = pedersen_commitment_scalar(mod_r_p(token_id), token_blind);
+    let token_coords = token_commit.to_affine().coordinates().unwrap();
+
+    let public_inputs =
+        vec![coin, *value_coords.x(), *value_coords.y(), *token_coords.x(), *token_coords.y()];
+
+    // Create the circuit
+    let circuit = ZkCircuit::new(prover_witnesses, zkbin.clone());
+
+    let proving_key = ProvingKey::build(11, &amp;circuit);
+    let proof = Proof::create(&amp;proving_key, &amp;[circuit], &amp;public_inputs, &amp;mut OsRng)?;
+
+    // ========
+    // Verifier
+    // ========
+
+    // Construct empty witnesses
+    let verifier_witnesses = empty_witnesses(&amp;zkbin);
+
+    // Create the circuit
+    let circuit = ZkCircuit::new(verifier_witnesses, zkbin);
+
+    let verifying_key = VerifyingKey::build(11, &amp;circuit);
+    proof.verify(&amp;verifying_key, &amp;public_inputs)?;
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="burn"><a class="header" href="#burn">Burn</a></h2>
+<pre><code>constant &quot;Burn&quot; {
+	EcFixedPointShort VALUE_COMMIT_VALUE,
+	EcFixedPoint VALUE_COMMIT_RANDOM,
+	EcFixedPointBase NULLIFIER_K,
+}
+
+contract &quot;Burn&quot; {
+	Base secret,
+	Base serial,
+	Base value,
+	Base token,
+	Base coin_blind,
+	Scalar value_blind,
+	Scalar token_blind,
+	Uint32 leaf_pos,
+	MerklePath path,
+	Base signature_secret,
+}
+
+circuit &quot;Burn&quot; {
+	# Poseidon hash of the nullifier
+	nullifier = poseidon_hash(secret, serial);
+	constrain_instance(nullifier);
+
+	# Pedersen commitment for coin's value
+	vcv = ec_mul_short(value, VALUE_COMMIT_VALUE);
+	vcr = ec_mul(value_blind, VALUE_COMMIT_RANDOM);
+	value_commit = ec_add(vcv, vcr);
+	# Since value_commit is a curve point, we fetch its coordinates
+	# and constrain them:
+	value_commit_x = ec_get_x(value_commit);
+	value_commit_y = ec_get_y(value_commit);
+	constrain_instance(value_commit_x);
+	constrain_instance(value_commit_y);
+
+	# Pedersen commitment for coin's token ID
+	tcv = ec_mul_short(token, VALUE_COMMIT_VALUE);
+	tcr = ec_mul(token_blind, VALUE_COMMIT_RANDOM);
+	token_commit = ec_add(tcv, tcr);
+	# Since token_commit is also a curve point, we'll do the same
+	# coordinate dance:
+	token_commit_x = ec_get_x(token_commit);
+	token_commit_y = ec_get_y(token_commit);
+	constrain_instance(token_commit_x);
+	constrain_instance(token_commit_y);
+
+	# Coin hash
+	pub = ec_mul_base(secret, NULLIFIER_K);
+	pub_x = ec_get_x(pub);
+	pub_y = ec_get_y(pub);
+	C = poseidon_hash(pub_x, pub_y, value, token, serial, coin_blind);
+
+	# Merkle root
+	root = calculate_merkle_root(leaf_pos, path, C);
+	constrain_instance(root);
+
+	# Finally, we derive a public key for the signature and
+	# constrain its coordinates:
+	signature_public = ec_mul_base(signature_secret, NULLIFIER_K);
+	signature_x = ec_get_x(signature_public);
+	signature_y = ec_get_y(signature_public);
+	constrain_instance(signature_x);
+	constrain_instance(signature_y);
+
+	# At this point we've enforced all of our public inputs.
+}
+</code></pre>
+<p>The <code>Burn</code> proof consists of operations similar to the <code>Mint</code> proof,
+with the addition of a <em>Merkle root</em><sup class="footnote-reference"><a href="#2">2</a></sup> calculation. In the same
+manner, we are doing a Poseidon hash instance, we're building Pedersen
+commitments for the value and token ID, and finally we're doing a
+public key derivation.</p>
+<p>In this case, our vector of public inputs could look like:</p>
+<pre><code>let public_inputs = vec![
+    nullifier,
+    *value_coords.x(),
+    *value_coords.y(),
+    *token_coords.x(),
+    *token_coords.y(),
+    merkle_root,
+    *sig_coords.x(),
+    *sig_coords.y(),
+];
+</code></pre>
+<h3 id="nullifier"><a class="header" href="#nullifier">Nullifier</a></h3>
+<p>When we spend the coin, we must ensure that the value of the coin
+cannot be double spent. We call this the <em>Burn</em> phase. The process
+relies on a nullifier <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span>, which we create using the secret key <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>
+for the public key <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> and a unique random serial <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">ρ</span></span></span></span>. Nullifiers
+are unique per coin and prevent double spending:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">ρ</span><span class="mclose">)</span></span></span></span></span></p>
+<h3 id="merkle-root"><a class="header" href="#merkle-root">Merkle root</a></h3>
+<p>We check that the merkle root corresponds to a coin which is in the
+Merkle tree <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">ρ</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span>
+<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span></span></p>
+<h3 id="value-and-token-commitments-1"><a class="header" href="#value-and-token-commitments-1">Value and token commitments</a></h3>
+<p>Just like we calculated these for the <code>Mint</code> proof, we do the same
+here:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span>
+<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>
+<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal">t</span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<h2 id="public-key-derivation"><a class="header" href="#public-key-derivation">Public key derivation</a></h2>
+<p>We check that the secret key <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> corresponds to a public key <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>.
+Usually, we do public key derivation my multiplying our secret key
+with a genera tor <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>, which results in a public key:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">x</span><span class="mord mathnormal">G</span></span></span></span></span></p>
+<h2 id="pseudo-code-1"><a class="header" href="#pseudo-code-1">Pseudo-code</a></h2>
+<p>Knowing this we can extend our pseudo-code and build the
+before-mentioned public inputs for the circuit:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let bincode = include_bytes!(&quot;../proof/burn.zk.bin&quot;);
+    let zkbin = ZkBinary::decode(bincode)?;
+
+    // ======
+    // Prover
+    // ======
+
+    // Witness values
+    let value = 42;
+    let token_id = pallas::Base::from(22);
+    let value_blind = pallas::Scalar::random(&amp;mut OsRng);
+    let token_blind = pallas::Scalar::random(&amp;mut OsRng);
+    let serial = pallas::Base::random(&amp;mut OsRng);
+    let coin_blind = pallas::Base::random(&amp;mut OsRng);
+    let secret = SecretKey::random(&amp;mut OsRng);
+    let sig_secret = SecretKey::random(&amp;mut OsRng);
+
+    // Build the coin
+    let coin2 = {
+        let coords = PublicKey::from_secret(secret).0.to_affine().coordinates().unwrap();
+        let messages =
+            [*coords.x(), *coords.y(), pallas::Base::from(value), token_id, serial, coin_blind];
+
+        poseidon::Hash::&lt;_, P128Pow5T3, ConstantLength&lt;6&gt;, 3, 2&gt;::init().hash(messages)
+    };
+
+    // Fill the merkle tree with some random coins that we want to witness,
+    // and also add the above coin.
+    let mut tree = BridgeTree::&lt;MerkleNode, 32&gt;::new(100);
+    let coin0 = pallas::Base::random(&amp;mut OsRng);
+    let coin1 = pallas::Base::random(&amp;mut OsRng);
+    let coin3 = pallas::Base::random(&amp;mut OsRng);
+
+    tree.append(&amp;MerkleNode(coin0));
+    tree.witness();
+    tree.append(&amp;MerkleNode(coin1));
+    tree.append(&amp;MerkleNode(coin2));
+    tree.witness();
+    tree.append(&amp;MerkleNode(coin3));
+    tree.witness();
+
+    let (leaf_pos, merkle_path) = tree.authentication_path(&amp;MerkleNode(coin2)).unwrap();
+    let leaf_pos: u64 = leaf_pos.into();
+    let leaf_pos = leaf_pos as u32;
+
+    let prover_witnesses = vec![
+        Witness::Base(Some(secret.0)),
+        Witness::Base(Some(serial)),
+        Witness::Base(Some(pallas::Base::from(value))),
+        Witness::Base(Some(token_id)),
+        Witness::Base(Some(coin_blind)),
+        Witness::Scalar(Some(value_blind)),
+        Witness::Scalar(Some(token_blind)),
+        Witness::Uint32(Some(leaf_pos)),
+        Witness::MerklePath(Some(merkle_path.try_into().unwrap())),
+        Witness::Base(Some(sig_secret.0)),
+    ];
+
+    // Create the public inputs
+    let nullifier = [secret.0, serial];
+    let nullifier =
+        poseidon::Hash::&lt;_, P128Pow5T3, ConstantLength&lt;2&gt;, 3, 2&gt;::init().hash(nullifier);
+
+    let value_commit = pedersen_commitment_u64(value, value_blind);
+    let value_coords = value_commit.to_affine().coordinates().unwrap();
+
+    let token_commit = pedersen_commitment_scalar(mod_r_p(token_id), token_blind);
+    let token_coords = token_commit.to_affine().coordinates().unwrap();
+
+    let sig_pubkey = PublicKey::from_secret(sig_secret);
+    let sig_coords = sig_pubkey.0.to_affine().coordinates().unwrap();
+
+    let merkle_root = tree.root();
+
+    let public_inputs = vec![
+        nullifier,
+        *value_coords.x(),
+        *value_coords.y(),
+        *token_coords.x(),
+        *token_coords.y(),
+        merkle_root.0,
+        *sig_coords.x(),
+        *sig_coords.y(),
+    ];
+
+    // Create the circuit
+    let circuit = ZkCircuit::new(prover_witnesses, zkbin.clone());
+
+    let proving_key = ProvingKey::build(11, &amp;circuit);
+    let proof = Proof::create(&amp;proving_key, &amp;[circuit], &amp;public_inputs, &amp;mut OsRng)?;
+
+    // ========
+    // Verifier
+    // ========
+
+    // Construct empty witnesses
+    let verifier_witnesses = empty_witnesses(&amp;zkbin);
+
+    // Create the circuit
+    let circuit = ZkCircuit::new(verifier_witnesses, zkbin);
+
+    let verifying_key = VerifyingKey::build(11, &amp;circuit);
+    proof.verify(&amp;verifying_key, &amp;public_inputs)?;
+<span class="boring">}
+</span></code></pre></pre>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>See section 3: <em>The Commitment Scheme</em> of Torben Pryds Pedersen's
+<a href="https://link.springer.com/content/pdf/10.1007%2F3-540-46766-1_9.pdf">paper on Non-Interactive and
+Information-Theoretic Secure Verifiable Secret
+Sharing</a></p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p><a href="https://en.wikipedia.org/wiki/Merkle_tree">Merkle tree on Wikipedia</a></p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../zkas/examples.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../zkas/examples/voting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../zkas/examples.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../zkas/examples/voting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
