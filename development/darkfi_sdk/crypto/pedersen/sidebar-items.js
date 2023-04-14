@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["pedersen_commitment_base","Pedersen commitment for a full-width base field element."],["pedersen_commitment_u64","Pedersen commitment for a 64-bit value, in the base field."]],"type":[["ValueBlind",""],["ValueCommit",""]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["main",""],["realmain",""]],"mod":[["buffers",""],["crypto",""],["irc",""],["model",""],["privmsg",""],["protocol_privmsg",""],["protocol_privmsg2",""],["rpc",""],["settings",""],["view",""]],"struct":[["Ircd",""],["KeyPair",""]]};

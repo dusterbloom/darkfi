@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SLED_SLOT_CHECKPOINT_TREE",""]],"struct":[["SlotCheckpointStore","The `SlotCheckpointStore` is a `sled` tree storing the checkpoints of the blockchain’s slots, where the key is the slot uid, and the value is is the serialized checkpoint."]]};

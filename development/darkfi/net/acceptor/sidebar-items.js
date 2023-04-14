@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Acceptor","Create inbound socket connections."]],"type":[["AcceptorPtr","Atomic pointer to Acceptor class."]]};

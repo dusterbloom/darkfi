@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["QueryType","Types we want to allow to query from the SQL wallet"]],"fn":[["init_wallet","Helper function to initialize `WalletPtr`"]],"struct":[["WalletDb","Structure representing base wallet operations. Additional operations can be implemented by trait extensions."]],"type":[["WalletPtr",""]]};

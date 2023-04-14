@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["DHOutput","Non-uniform output of a scalar multiplication. This represents a point on the curve, and should not be used directly as a cipher key."],["KeyPair","A key pair."],["PublicKey","A public key."],["SecretKey","A secret key."]]};

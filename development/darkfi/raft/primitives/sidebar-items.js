@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["NetMsgMethod",""],["Role",""]],"struct":[["BroadcastMsgRequest",""],["Log",""],["LogRequest",""],["LogResponse",""],["Logs",""],["MapLength",""],["NetMsg",""],["NodeId",""],["NodeIdMsg",""],["SyncRequest",""],["SyncResponse",""],["VoteRequest",""],["VoteResponse",""]],"type":[["Channel",""],["Sender",""]]};

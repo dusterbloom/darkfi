@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"trait":[["Hashable","A trait describing the operations that make a value  suitable for inclusion in an incremental merkle tree."],["Tree","A Merkle tree that supports incremental appends, witnessing of leaf nodes, checkpoints and rollbacks."]]};

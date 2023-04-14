@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CipherInfo","Information about a cipher implementation"]],"trait":[["AeadCipher","An AEAD extension for `Cipher`"],["Cipher","A stateless (oneshot) cipher interface"],["StreamingAeadCipher","An AEAD extension for `StreamingCipher`"],["StreamingCipher","A stateful (streaming) cipher interface"]]};

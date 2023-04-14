@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["LitType","Literal types supported by the zkas VM"],["StackType","Stack types in bincode & vm"],["VarType","Varable types supported by the zkas VM"]]};

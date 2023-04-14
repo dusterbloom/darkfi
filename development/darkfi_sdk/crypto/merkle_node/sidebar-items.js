@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["EMPTY_ROOTS",""],["MerkleNode","The `MerkleNode` is represented as a base field element."],["UNCOMMITTED_ORCHARD",""]],"type":[["MerkleTree",""]]};

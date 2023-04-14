@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Config",""],["Socks5Stream","A SOCKS5 client. `Socks5Stream` implements [`AsyncRead`] and [`AsyncWrite`]."]]};

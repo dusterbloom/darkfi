@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Nullifier","The `Nullifier` is represented as a base field element."]]};

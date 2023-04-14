@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["IP4_PRIV_RANGES","Illegal IPv4 addresses"],["IP6_PRIV_RANGES","Illegal IPv6 addresses"],["LOCALNET","Localnet addresses"]]};

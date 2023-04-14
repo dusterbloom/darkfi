@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SEND_ADDR_SLEEP_SECONDS",""]],"struct":[["ProtocolAddress","Defines address and get-address messages."]]};

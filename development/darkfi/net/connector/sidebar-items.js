@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Connector","Create outbound socket connections."]]};

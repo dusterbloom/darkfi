@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["arithmetic","Base field arithmetic gadget"],["cond_select","Conditional selection"],["is_zero","is_zero comparison gadget"],["less_than","Field-native less than comparison gadget with a lookup table"],["native_range_check","Field-native range check gadget with a lookup table"],["small_range_check","Small range check, 0..8 bits"]]};

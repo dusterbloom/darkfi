@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Channel","Async channel for communication between nodes."],["ChannelInfo",""]],"type":[["ChannelPtr","Atomic pointer to async channel."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["ContractCall","A ContractCall is the part of a transaction that executes a certain `contract_id` with `data` as the call’s payload."]]};

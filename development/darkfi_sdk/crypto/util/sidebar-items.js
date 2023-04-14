@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["hash_to_scalar","Hash `a` and `b` together with a prefix `persona` and return a `pallas::Scalar` element from the digest."],["mod_r_p","Converts from pallas::Base to pallas::Scalar (aka $x \\pmod{r_\\mathbb{P}}$)."],["poseidon_hash","Wrapper around poseidon in `halo2_gadgets`"]]};

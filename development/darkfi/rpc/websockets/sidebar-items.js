@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["WsStream",""]],"fn":[["connect","Connects to a WebSocket address (optionally secured by TLS)."]]};

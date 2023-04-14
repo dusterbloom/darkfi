@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["GAS_LIMIT","Gas limit for a contract"],["MEMORY","Name of the wasm linear memory in our guest module"],["SMART_CONTRACT_ZKAS_DB_NAME","The hardcoded db name for the zkas circuits database tree"]],"enum":[["ContractSection",""]],"struct":[["Env","The wasm vm runtime instantiated for every smart contract that runs."],["Runtime",""]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["SignerInfo","Information about a signature implementation"]],"trait":[["Signer","A stateless (oneshot) signature interface"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["TransferCall",""],["TransferClearInput",""],["TransferInput",""],["TransferOutput",""]]};

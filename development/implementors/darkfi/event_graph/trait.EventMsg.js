@@ -1,0 +1,5 @@
+(function() {var implementors = {
+"genevd":[["impl <a class=\"trait\" href=\"darkfi/event_graph/trait.EventMsg.html\" title=\"trait darkfi::event_graph::EventMsg\">EventMsg</a> for <a class=\"struct\" href=\"genevd/genevent/struct.GenEvent.html\" title=\"struct genevd::genevent::GenEvent\">GenEvent</a>"]],
+"ircd2":[["impl <a class=\"trait\" href=\"darkfi/event_graph/trait.EventMsg.html\" title=\"trait darkfi::event_graph::EventMsg\">EventMsg</a> for <a class=\"struct\" href=\"ircd2/privmsg/struct.PrivMsgEvent.html\" title=\"struct ircd2::privmsg::PrivMsgEvent\">PrivMsgEvent</a>"]],
+"taud":[["impl <a class=\"trait\" href=\"darkfi/event_graph/trait.EventMsg.html\" title=\"trait darkfi::event_graph::EventMsg\">EventMsg</a> for <a class=\"struct\" href=\"taud/struct.EncryptedTask.html\" title=\"struct taud::EncryptedTask\">EncryptedTask</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

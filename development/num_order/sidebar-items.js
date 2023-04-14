@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"trait":[["NumHash","Consistent hash implementation among different numeric types."],["NumOrd","Consistent comparison among different numeric types."]]};

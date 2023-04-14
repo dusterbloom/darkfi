@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["consensus_sync_task","async task used for consensus state syncing. Returns flag if node is not connected to other peers or consensus hasn’t started, so it can immediately start proposing proposals."]]};

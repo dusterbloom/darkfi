@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Modulo","Modular arithmetic."],["ModuloRing","A ring of integers modulo a positive integer."]],"trait":[["IntoModulo","Trait for types that can be converted into [Modulo] in a [ModuloRing]."]]};

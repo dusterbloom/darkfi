@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["P2pState",""]],"struct":[["P2p","Top level peer-to-peer networking interface."]],"type":[["ConnectedChannels","List of connected channels."],["P2pPtr","Atomic pointer to p2p interface."],["PendingChannels","List of channels that are awaiting connection."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["TorController","Represents information needed to communicate with the Tor control socket"],["TorTransport","Implements communication through the tor proxy service."]]};

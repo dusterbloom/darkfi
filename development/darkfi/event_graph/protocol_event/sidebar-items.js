@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MAX_CONFIRM",""],["SIZE_OF_SEEN_BUFFER",""],["UNREAD_EVENT_EXPIRE_TIME",""]],"struct":[["GetData",""],["Inv",""],["InvItem",""],["ProtocolEvent",""],["RingBuffer",""],["Seen",""],["SyncEvent",""],["UnreadEvents",""]],"type":[["InvId",""],["SeenPtr",""],["UnreadEventsPtr",""]]};

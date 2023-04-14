@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["Addr",""],["AddrError","SOCKS5 reply code"],["TargetAddr","A description of a connection target."]],"fn":[["read_address","This function is used by the client & the server"]],"trait":[["ToTargetAddr","A trait for objects that can be converted to `TargetAddr`."]]};

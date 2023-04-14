@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["base32","Base32 encoding and decoding Base32 encoding as specified by RFC4648 Optional padding is the `=` character."]]};

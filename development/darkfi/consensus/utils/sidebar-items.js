@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["base2ibig","note! only support positive conversion, and zero. used for testing purpose on non-negative values at the moment."],["fbig2base","note! nagative values in pallas field won’t wraps, and won’t convert back to same value."],["fbig2ibig",""]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["approx","Trait definitions for approximated values"],["bit","Trait definitions for bitwise operations."],["error","Error types."],["math","Trait definitions for math operations"],["ring","Trait definitions for operations related to rings (integer/polynomial/etc.)"],["sign","Trait definitions for sign related operations."]]};

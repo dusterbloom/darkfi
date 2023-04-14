@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"trait":[["Type","Indicates that a SQL type is supported for a database."]]};

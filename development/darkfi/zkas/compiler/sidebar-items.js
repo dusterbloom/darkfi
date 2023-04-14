@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BINARY_VERSION","Version of the binary"],["MAGIC_BYTES","Magic bytes prepended to the binary"]],"struct":[["Compiler",""]]};

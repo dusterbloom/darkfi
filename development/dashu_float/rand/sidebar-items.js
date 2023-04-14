@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Uniform01","A uniform distribution between 0 and 1. It can be used to replace the [Standard], [Open01], [OpenClosed01] distributions from the `rand` crate when you want to customize the precision of the generated float number."],["UniformFBig","The back-end implementing [UniformSampler] for [FBig] (and [DBig][crate::DBig])."]]};

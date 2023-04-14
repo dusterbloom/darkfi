@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["gen_id",""],["send_loop",""]],"struct":[["Raft",""]]};

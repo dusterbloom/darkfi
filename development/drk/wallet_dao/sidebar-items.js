@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Dao","Parameters representing an intialized DAO, optionally deployed on-chain"],["DaoParams","Parameters representing a DAO to be initialized"],["DaoProposal","Parameters representing an initialized DAO proposal, optionally deployed on-chain"],["DaoVote","Parameters representing a vote we’ve made on a DAO proposal"]]};

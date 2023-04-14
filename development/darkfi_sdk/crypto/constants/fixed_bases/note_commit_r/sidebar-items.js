@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["GENERATOR","Generator used in SinsemillaCommit randomness for note commitment"],["U","Full-width u-values for GENERATOR"],["Z","Full-width z-values for GENERATOR"]],"fn":[["generator",""]]};

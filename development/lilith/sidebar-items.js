@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["CONFIG_FILE",""],["CONFIG_FILE_CONTENTS",""]],"fn":[["load_hosts","Retrieve saved hosts for provided networks"],["main",""],["realmain",""],["save_hosts","Save spawns current hosts"],["spawn_network",""]],"mod":[["config",""]],"struct":[["Lilith","Struct representing the daemon."],["Spawn","Struct representing a spawned p2p network."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Keypair","Keypair structure holding a `SecretKey` and its respective `PublicKey`"],["PublicKey","Structure holding a public key, wrapping a `pallas::Point` element."],["SecretKey","Structure holding a secret key, wrapping a `pallas::Base` element."]]};

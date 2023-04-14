@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["assign_free_advice",""]],"mod":[["gadget","ZK gadget implementations"],["halo2",""],["proof","Proof creation API"],["vm","Halo2 zkas virtual machine"],["vm_stack","VM stack type abstractions"]]};

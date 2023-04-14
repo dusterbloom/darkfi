@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["decrypt_task",""],["encrypt_task",""],["get_workspaces",""],["main",""],["on_receive_task",""],["realmain",""],["start_sync_loop",""]],"mod":[["error",""],["jsonrpc",""],["month_tasks",""],["settings",""],["task_info",""],["util",""]],"struct":[["EncryptedTask",""]]};

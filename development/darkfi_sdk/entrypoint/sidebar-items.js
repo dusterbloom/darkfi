@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["SUCCESS","Success exit code for a contract"]],"fn":[["deserialize","Deserialize a given payload in `entrypoint` The return values from this are the input values for the above defined functions."]]};

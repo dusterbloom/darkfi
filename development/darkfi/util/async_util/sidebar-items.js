@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["msleep","Sleep for any number of milliseconds."],["sleep","Sleep for any number of seconds."]]};

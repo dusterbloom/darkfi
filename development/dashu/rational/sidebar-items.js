@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["ops","Re-exported relevant operator traits from `dashu-base`"],["rand","Random rational numbers generation with the `rand` crate."]],"struct":[["RBig","An arbitrary precision rational number."],["Relaxed","An arbitrary precision rational number without strict reduction."]]};

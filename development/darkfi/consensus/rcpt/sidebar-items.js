@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["AEAD_TAG_SIZE",""],["CIPHER_SIZE",""],["PLAINTEXT_SIZE",""]],"struct":[["EncryptedTxRcpt",""],["TxRcpt","transfered lead coin is rcpt into two coins, first coin is transfered rcpt coin. second coin is the change returning to sender, or different address."]]};

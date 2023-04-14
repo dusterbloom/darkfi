@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MAX_DEPTH",""],["MAX_HEIGHT",""]],"struct":[["Event",""],["EventNode",""],["Model",""]],"type":[["EventId",""],["ModelPtr",""]]};

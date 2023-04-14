@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["AuthenticationMethod",""],["ReplyError","SOCKS5 reply code"],["SocksError",""]],"macro":[["read_exact","Easy to destructure bytes buffers by naming each fields:"]],"mod":[["client",""],["consts",""],["server",""],["util",""]],"type":[["Result",""]]};

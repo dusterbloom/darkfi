@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["create_token_freeze_proof",""]],"struct":[["FreezeCallBuilder","Struct holding necessary information to build a `Money::FreezeV1` contract call."],["FreezeCallDebris",""],["TokenFreezeRevealed",""]]};

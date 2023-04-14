@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["SledDbOverlay","An overlay on top of an entire [`sled::Db`] which can span multiple trees"],["SledTreeOverlay","An overlay on top of a single [`sled::Tree`] instance"]]};

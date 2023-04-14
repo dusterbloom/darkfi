@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["desc_in_editor","Start up the preferred editor to edit a task’s description."],["due_as_timestamp","Parse due date (e.g. “1503” for 15 March) as i64 timestamp."]]};

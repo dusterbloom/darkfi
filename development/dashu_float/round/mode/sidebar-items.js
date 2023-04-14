@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["Away","Round away from 0"],["Down","Round toward -∞"],["HalfAway","Round to the nearest value, ties away from zero"],["HalfEven","Round to the nearest value, ties are rounded to an even value. (default mode for decimal float)"],["Up","Round toward +∞"],["Zero","Round toward 0 (default mode for binary float)"]]};

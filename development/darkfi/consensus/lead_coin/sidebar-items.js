@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MERKLE_DEPTH",""],["MERKLE_DEPTH_LEAD_COIN",""],["ONE",""],["PREFIX_CM",""],["PREFIX_EVL",""],["PREFIX_PK",""],["PREFIX_SEED",""],["PREFIX_SN",""],["ZERO",""]],"struct":[["LeadCoin","Structure representing the consensus leader coin"],["LeadCoinSecrets","This struct holds the secrets for creating LeadCoins during one epoch."]]};

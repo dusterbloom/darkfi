@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"trait":[["DeterministicRng","A deterministic random number generator"],["PubKeyGen","A algorithm specific trait to compute a public key from a secret key"],["SecKeyGen","A algorithm specific key generator to generate a (secret) key"],["SecureRng","A random number generator"],["SeedableRng","A seedable random number generator"]]};

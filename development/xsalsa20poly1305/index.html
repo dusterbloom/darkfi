@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="XSalsa20Poly1305 (a.k.a. NaCl `crypto_secretbox`) is an authenticated encryption cipher amenable to fast, constant-time implementations in software, based on the Salsa20 stream cipher (with [XSalsa20] 192-bit nonce extension) and the [Poly1305] universal hash function, which acts as a message authentication code."><meta name="keywords" content="rust, rustlang, rust-lang, xsalsa20poly1305"><title>xsalsa20poly1305 - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../static.files/rustdoc-93196c7a1c3542a8.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../static.files/light-4743e13df3dfe8c4.css"><link rel="stylesheet" disabled href="../static.files/dark-0e1b889528bd466b.css"><link rel="stylesheet" disabled href="../static.files/ayu-65289d5d067c7c66.css"><script id="default-settings" ></script><script src="../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../crates.js"></script><script defer src="../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="icon" href="https://raw.githubusercontent.com/RustCrypto/meta/master/logo.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="logo-container" href="../xsalsa20poly1305/index.html"><img src="https://raw.githubusercontent.com/RustCrypto/meta/master/logo.svg" alt="logo"></a><h2></h2></nav><nav class="sidebar"><a class="logo-container" href="../xsalsa20poly1305/index.html">
+                <img src="https://raw.githubusercontent.com/RustCrypto/meta/master/logo.svg" alt="logo"></a><h2 class="location"><a href="#">Crate xsalsa20poly1305</a></h2><div class="sidebar-elems"><ul class="block"><li class="version">Version 0.9.0</li><li><a id="all-types" href="all.html">All Items</a></li></ul><section><ul class="block"><li><a href="#reexports">Re-exports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#constants">Constants</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></section></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1>Crate <a class="mod" href="#">xsalsa20poly1305</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../static.files/clipboard-7571035ce49a181d.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="srclink" href="../src/xsalsa20poly1305/lib.rs.html#1-348">source</a> · <button id="toggle-all-docs" title="collapse all docs">[<span>&#x2212;</span>]</button></span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p><strong>XSalsa20Poly1305</strong> (a.k.a. NaCl <a href="https://nacl.cr.yp.to/secretbox.html"><code>crypto_secretbox</code></a>) is an
+<a href="https://en.wikipedia.org/wiki/Authenticated_encryption">authenticated encryption</a> cipher amenable to fast, constant-time
+implementations in software, based on the <a href="https://docs.rs/salsa20">Salsa20</a> stream cipher
+(with <a href="../salsa20/xsalsa/type.XSalsa20.html" title="XSalsa20">XSalsa20</a> 192-bit nonce extension) and the <a href="../poly1305/struct.Poly1305.html" title="Poly1305">Poly1305</a> universal
+hash function, which acts as a message authentication code.</p>
+<p>This algorithm has largely been replaced by the newer <a href="http://docs.rs/chacha20poly1305">ChaCha20Poly1305</a>
+(and the associated <a href="https://docs.rs/chacha20poly1305/latest/chacha20poly1305/struct.XChaCha20Poly1305.html">XChaCha20Poly1305</a>) AEAD ciphers (<a href="https://tools.ietf.org/html/rfc8439">RFC 8439</a>),
+but is useful for interoperability with legacy NaCl-based protocols.</p>
+<h3 id="security-warning"><a href="#security-warning">Security Warning</a></h3>
+<p>No security audits of this crate have ever been performed, and it has not been
+thoroughly assessed to ensure its operation is constant-time on common CPU
+architectures.</p>
+<p>Where possible the implementation uses constant-time hardware intrinsics,
+or otherwise falls back to an implementation which contains no secret-dependent
+branches or table lookups, however it’s possible LLVM may insert such
+operations in certain scenarios.</p>
+<h2 id="usage"><a href="#usage">Usage</a></h2>
+<div class="example-wrap ignore"><div class='tooltip'>ⓘ</div><pre class="rust rust-example-rendered"><code><span class="kw">use </span>xsalsa20poly1305::{
+    aead::{Aead, KeyInit, OsRng},
+    XSalsa20Poly1305, Nonce
+};
+
+<span class="kw">let </span>key = XSalsa20Poly1305::generate_key(<span class="kw-2">&amp;mut </span>OsRng);
+<span class="kw">let </span>cipher = XSalsa20Poly1305::new(<span class="kw-2">&amp;</span>key);
+<span class="kw">let </span>nonce = XSalsa20Poly1305::generate_nonce(<span class="kw-2">&amp;mut </span>OsRng); <span class="comment">// unique per message
+</span><span class="kw">let </span>ciphertext = cipher.encrypt(<span class="kw-2">&amp;</span>nonce, <span class="string">b&quot;plaintext message&quot;</span>.as_ref())<span class="question-mark">?</span>;
+<span class="kw">let </span>plaintext = cipher.decrypt(<span class="kw-2">&amp;</span>nonce, ciphertext.as_ref())<span class="question-mark">?</span>;
+<span class="macro">assert_eq!</span>(<span class="kw-2">&amp;</span>plaintext, <span class="string">b&quot;plaintext message&quot;</span>);</code></pre></div>
+<h3 id="in-place-usage-eliminates-alloc-requirement"><a href="#in-place-usage-eliminates-alloc-requirement">In-place Usage (eliminates <code>alloc</code> requirement)</a></h3>
+<p>This crate has an optional <code>alloc</code> feature which can be disabled in e.g.
+microcontroller environments that don’t have a heap.</p>
+<p>The <a href="trait.AeadInPlace.html#method.encrypt_in_place" title="AeadInPlace::encrypt_in_place"><code>AeadInPlace::encrypt_in_place</code></a> and <a href="trait.AeadInPlace.html#method.decrypt_in_place" title="AeadInPlace::decrypt_in_place"><code>AeadInPlace::decrypt_in_place</code></a>
+methods accept any type that impls the <a href="../aead/trait.Buffer.html" title="aead::Buffer"><code>aead::Buffer</code></a> trait which
+contains the plaintext for encryption or ciphertext for decryption.</p>
+<p>Note that if you enable the <code>heapless</code> feature of this crate,
+you will receive an impl of <a href="../aead/trait.Buffer.html" title="aead::Buffer"><code>aead::Buffer</code></a> for <code>heapless::Vec</code>
+(re-exported from the <code>aead</code> crate as [<code>aead::heapless::Vec</code>]),
+which can then be passed as the <code>buffer</code> parameter to the in-place encrypt
+and decrypt methods:</p>
+
+<div class="example-wrap ignore"><div class='tooltip'>ⓘ</div><pre class="rust rust-example-rendered"><code><span class="kw">use </span>xsalsa20poly1305::{
+    aead::{AeadInPlace, KeyInit, OsRng, heapless::Vec},
+    XSalsa20Poly1305, Nonce,
+};
+
+<span class="kw">let </span>key = XSalsa20Poly1305::generate_key(<span class="kw-2">&amp;mut </span>OsRng);
+<span class="kw">let </span>cipher = XSalsa20Poly1305::new(<span class="kw-2">&amp;</span>key);
+<span class="kw">let </span>nonce = XSalsa20Poly1305::generate_nonce(<span class="kw-2">&amp;mut </span>OsRng); <span class="comment">// unique per message
+
+</span><span class="kw">let </span><span class="kw-2">mut </span>buffer: Vec&lt;u8, <span class="number">128</span>&gt; = Vec::new(); <span class="comment">// Note: buffer needs 16-bytes overhead for auth tag tag
+</span>buffer.extend_from_slice(<span class="string">b&quot;plaintext message&quot;</span>);
+
+<span class="comment">// Encrypt `buffer` in-place, replacing the plaintext contents with ciphertext
+</span>cipher.encrypt_in_place(<span class="kw-2">&amp;</span>nonce, <span class="string">b&quot;&quot;</span>, <span class="kw-2">&amp;mut </span>buffer)<span class="question-mark">?</span>;
+
+<span class="comment">// `buffer` now contains the message ciphertext
+</span><span class="macro">assert_ne!</span>(<span class="kw-2">&amp;</span>buffer, <span class="string">b&quot;plaintext message&quot;</span>);
+
+<span class="comment">// Decrypt `buffer` in-place, replacing its ciphertext context with the original plaintext
+</span>cipher.decrypt_in_place(<span class="kw-2">&amp;</span>nonce, <span class="string">b&quot;&quot;</span>, <span class="kw-2">&amp;mut </span>buffer)<span class="question-mark">?</span>;
+<span class="macro">assert_eq!</span>(<span class="kw-2">&amp;</span>buffer, <span class="string">b&quot;plaintext message&quot;</span>);</code></pre></div>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>xsalsa20poly1305::XSalsa20Poly1305;
+<span class="kw">use </span>xsalsa20poly1305::aead::{AeadInPlace, KeyInit, generic_array::GenericArray};
+<span class="kw">use </span>xsalsa20poly1305::aead::heapless::Vec;
+
+<span class="kw">let </span>key = GenericArray::from_slice(<span class="string">b&quot;an example very very secret key.&quot;</span>);
+<span class="kw">let </span>cipher = XSalsa20Poly1305::new(key);
+
+<span class="kw">let </span>nonce = GenericArray::from_slice(<span class="string">b&quot;extra long unique nonce!&quot;</span>); <span class="comment">// 24-bytes; unique
+
+</span><span class="kw">let </span><span class="kw-2">mut </span>buffer: Vec&lt;u8, <span class="number">128</span>&gt; = Vec::new();
+buffer.extend_from_slice(<span class="string">b&quot;plaintext message&quot;</span>);
+
+<span class="comment">// Encrypt `buffer` in-place, replacing the plaintext contents with ciphertext
+</span>cipher.encrypt_in_place(nonce, <span class="string">b&quot;&quot;</span>, <span class="kw-2">&amp;mut </span>buffer).expect(<span class="string">&quot;encryption failure!&quot;</span>);
+
+<span class="comment">// `buffer` now contains the message ciphertext
+</span><span class="macro">assert_ne!</span>(<span class="kw-2">&amp;</span>buffer, <span class="string">b&quot;plaintext message&quot;</span>);
+
+<span class="comment">// Decrypt `buffer` in-place, replacing its ciphertext context with the original plaintext
+</span>cipher.decrypt_in_place(nonce, <span class="string">b&quot;&quot;</span>, <span class="kw-2">&amp;mut </span>buffer).expect(<span class="string">&quot;decryption failure!&quot;</span>);
+<span class="macro">assert_eq!</span>(<span class="kw-2">&amp;</span>buffer, <span class="string">b&quot;plaintext message&quot;</span>);</code></pre></div>
+</div></details><h2 id="reexports" class="small-section-header"><a href="#reexports">Re-exports</a></h2><div class="item-table"><div class="item-row"><div class="item-left import-item" id="reexport.aead"><code>pub use <a class="mod" href="../aead/index.html" title="mod aead">aead</a>;</code></div></div></div><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="consts/index.html" title="xsalsa20poly1305::consts mod">consts</a></div><div class="item-right docblock-short">Type aliases for many constants.</div></div></div><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Error.html" title="xsalsa20poly1305::Error struct">Error</a></div><div class="item-right docblock-short">Error type.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.XSalsa20Poly1305.html" title="xsalsa20poly1305::XSalsa20Poly1305 struct">XSalsa20Poly1305</a></div><div class="item-right docblock-short"><strong>XSalsa20Poly1305</strong> (a.k.a. NaCl <code>crypto_secretbox</code>) authenticated
+encryption cipher.</div></div></div><h2 id="constants" class="small-section-header"><a href="#constants">Constants</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="constant" href="constant.KEY_SIZE.html" title="xsalsa20poly1305::KEY_SIZE constant">KEY_SIZE</a></div><div class="item-right docblock-short">Size of an XSalsa20Poly1305 key in bytes</div></div><div class="item-row"><div class="item-left module-item"><a class="constant" href="constant.NONCE_SIZE.html" title="xsalsa20poly1305::NONCE_SIZE constant">NONCE_SIZE</a></div><div class="item-right docblock-short">Size of an XSalsa20Poly1305 nonce in bytes</div></div><div class="item-row"><div class="item-left module-item"><a class="constant" href="constant.TAG_SIZE.html" title="xsalsa20poly1305::TAG_SIZE constant">TAG_SIZE</a></div><div class="item-right docblock-short">Size of a Poly1305 tag in bytes</div></div></div><h2 id="traits" class="small-section-header"><a href="#traits">Traits</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.AeadCore.html" title="xsalsa20poly1305::AeadCore trait">AeadCore</a></div><div class="item-right docblock-short">Authenticated Encryption with Associated Data (AEAD) algorithm core trait.</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.AeadInPlace.html" title="xsalsa20poly1305::AeadInPlace trait">AeadInPlace</a></div><div class="item-right docblock-short">In-place stateless AEAD trait.</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.KeyInit.html" title="xsalsa20poly1305::KeyInit trait">KeyInit</a></div><div class="item-right docblock-short">Types which can be initialized from key.</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.KeySizeUser.html" title="xsalsa20poly1305::KeySizeUser trait">KeySizeUser</a></div><div class="item-right docblock-short">Types which use key for initialization.</div></div></div><h2 id="types" class="small-section-header"><a href="#types">Type Definitions</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="type" href="type.Key.html" title="xsalsa20poly1305::Key type">Key</a></div><div class="item-right docblock-short">Key type used by all Salsa variants and <a href="../salsa20/xsalsa/type.XSalsa20.html" title="XSalsa20"><code>XSalsa20</code></a>.</div></div><div class="item-row"><div class="item-left module-item"><a class="type" href="type.Nonce.html" title="xsalsa20poly1305::Nonce type">Nonce</a></div><div class="item-right docblock-short">Nonce type used by <a href="../salsa20/xsalsa/type.XSalsa20.html" title="XSalsa20"><code>XSalsa20</code></a>.</div></div><div class="item-row"><div class="item-left module-item"><a class="type" href="type.Tag.html" title="xsalsa20poly1305::Tag type">Tag</a></div><div class="item-right docblock-short">Poly1305 tags</div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="xsalsa20poly1305" data-themes="" data-resource-suffix="" data-rustdoc-version="1.68.2 (9eb3afe9e 2023-03-27)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>

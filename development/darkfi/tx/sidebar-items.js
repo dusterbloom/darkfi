@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"macro":[["zip",""]],"struct":[["Transaction","A Transaction contains an arbitrary number of `ContractCall` objects, along with corresponding ZK proofs and Schnorr signatures."]]};

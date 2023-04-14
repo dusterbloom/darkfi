@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["SwapCallBuilder","Struct holding necessary information to build a `Money::OtcSwapV1` contract call. This is used to build half of the swap transaction, so both parties have to build their halves and combine them."],["SwapCallDebris",""]]};

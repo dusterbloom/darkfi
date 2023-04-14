@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["GENERATOR","The value commitment is used to check balance between inputs and outputs. The value is placed over this generator."],["U","Full-width u-values for GENERATOR"],["Z","Full-width z-values for GENERATOR"]],"fn":[["generator",""]]};

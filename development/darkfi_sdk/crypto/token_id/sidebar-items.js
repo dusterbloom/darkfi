@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["DARK_TOKEN_ID","Native DARK token ID"],["TokenId","TokenId represents an on-chain identifier for a certain token."]]};

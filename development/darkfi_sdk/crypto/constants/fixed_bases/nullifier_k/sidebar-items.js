@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["GENERATOR",""],["U","Full-width u-values for GENERATOR"],["Z","Full-width z-values for GENERATOR"]],"fn":[["generator",""]]};

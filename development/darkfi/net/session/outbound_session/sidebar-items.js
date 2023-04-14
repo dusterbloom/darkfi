@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["OutboundState",""]],"struct":[["OutboundInfo",""],["OutboundSession","Defines outbound connections session."]]};
